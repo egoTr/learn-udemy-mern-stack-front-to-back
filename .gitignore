@@ -2,6 +2,10 @@
 *.url
 *.zip
 *.rar
+*.TODO
+TODO.*
+*.NOTE
+NOTE.*
 
 # Logs
 logs

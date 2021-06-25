@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://root:hWzoLDR54MAX59yy@cluster0.d3f7x.mongodb.net/devconnector",
+    "jwtSecret": "dolalala.me"
+}
