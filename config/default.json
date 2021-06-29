@@ -1,4 +1,6 @@
 {
     "mongoURI": "mongodb+srv://root:hWzoLDR54MAX59yy@cluster0.d3f7x.mongodb.net/devconnector",
-    "jwtSecret": "dolalala.me"
+    "jwtSecret": "dolalala.me",
+    "githubClientID": "Iv1.49dedc5264710f02",
+    "githubSecret": "b8cedb0d939688c774e65a39bb422eb900953220"
 }
