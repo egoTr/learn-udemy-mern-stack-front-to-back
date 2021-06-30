@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+
+import { connect } from 'react-redux';
+import { setAlert } from '../../actions/alert';
 
 import styled, { createGlobalStyle } from 'styled-components';
 const Error = styled.p`
@@ -20,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
-const Register = () => {
+const Register = (props) => {
     const [data, setData] = useState({
         name: '',
         email: '',
@@ -42,8 +46,10 @@ const Register = () => {
         event.preventDefault();
 
         // Check if passwords match
-        if (passwordConfirm !== password)
+        if (passwordConfirm !== password) {
+            props.setAlert('Passwords do not match', 'danger')
             return setValidationError('Passwords do not match');
+        } // if
         
         // Reset validation for passwords
         setValidationError('');
@@ -123,4 +129,8 @@ const Register = () => {
     )
 }
 
-export default Register;
+Register.propTypes = {
+    setAlert: PropTypes.func.isRequired
+}
+
+export default connect(null, { setAlert })(Register);

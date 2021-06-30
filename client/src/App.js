@@ -6,20 +6,29 @@ import Login from "./components/auth/login";
 
 import './app.css';
 
+// Redux
+import { Provider } from 'react-redux';
+import store from './store';
+import Alert from './components/layout/alert';
+
 const App = (props) => {
   return (
-    <BrowserRouter>
-      <NavBar />
+    <Provider store={store}>
+      <BrowserRouter>
+        <NavBar />
 
-      <Route exact path="/" component={Landing}></Route>
+        <Route exact path="/" component={Landing}></Route>
 
-      <section className="wrapper">
-        <Switch>
-          <Route exact path="/register" component={Register}></Route>
-          <Route exact path="/login" component={Login}></Route>
-        </Switch>
-      </section>
-    </BrowserRouter>
+        <section className="wrapper">
+          <Alert />
+
+          <Switch>
+            <Route exact path="/register" component={Register}></Route>
+            <Route exact path="/login" component={Login}></Route>
+          </Switch>
+        </section>
+      </BrowserRouter>
+    </Provider>
   )
 }
 
