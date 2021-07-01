@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 
 import { connect } from 'react-redux';
 import { setAlert } from '../../actions/alert';
+import { register } from '../../actions/auth';
 
 import styled, { createGlobalStyle } from 'styled-components';
 const Error = styled.p`
@@ -54,10 +54,10 @@ const Register = (props) => {
         // Reset validation for passwords
         setValidationError('');
 
-        register();        
+        register({ name, email, password });        
     } // handleSubmit
 
-    const register = async () => {
+    /* const register = async () => {
         const user = { name, email, password };
         const body = JSON.stringify(user);
 
@@ -75,7 +75,7 @@ const Register = (props) => {
 
             setValidationError(errors);
         } // catch
-    } // register
+    } // register */
 
     return (
         <>
@@ -130,7 +130,11 @@ const Register = (props) => {
 }
 
 Register.propTypes = {
-    setAlert: PropTypes.func.isRequired
+    setAlert: PropTypes.func.isRequired,
+    register: PropTypes.func.isRequired
 }
 
-export default connect(null, { setAlert })(Register);
+export default connect(
+    null,
+    { setAlert, register }
+)(Register);
